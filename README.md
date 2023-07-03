@@ -26,5 +26,16 @@
 * наличие 2 реплик
 * использование стратегии rollingupdate
 #### 2.1 pod.yaml
----
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-netology-ml
+spec:
+  containers:
+  - name: tomcat
+    image: tomcat:8.5.69
+    ports:
+    - containerPort: 8080 
+  ```
 
