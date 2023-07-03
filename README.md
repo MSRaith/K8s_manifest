@@ -38,4 +38,24 @@ spec:
     ports:
     - containerPort: 8080 
   ```
+#### 2.2 replicaset.yaml
+```
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: rep-netology-ml 
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: netology-ml 
+  template:
+    metadata:
+      labels:
+        app: netology-ml
+    spec:
+      containers:
+      - name: tomcat
+        image: tomcat:8.5.69
+```
 
