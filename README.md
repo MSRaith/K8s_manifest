@@ -58,4 +58,7 @@ spec:
       - name: tomcat
         image: tomcat:8.5.69
 ```
+#### 2.3 deployment.yaml
+```
 
+```
