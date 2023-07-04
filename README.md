@@ -25,7 +25,7 @@
 * внутри него сервер приложений tomcat версии 8.5.69 с портом 8080
 * наличие 2 реплик
 * использование стратегии rollingupdate
-#### 2.1 pod.yaml
+#### 2.1 [pod.yaml](https://github.com/MSRaith/k8s_manifest/blob/main/pod.yaml)
 ```
 apiVersion: v1
 kind: Pod
@@ -38,7 +38,7 @@ spec:
     ports:
     - containerPort: 8080 
   ```
-#### 2.2 replicaset.yaml
+#### 2.2 [replicaset.yaml](https://github.com/MSRaith/k8s_manifest/blob/main/replicaset.ayml)
 ```
 apiVersion: apps/v1
 kind: ReplicaSet
@@ -58,7 +58,7 @@ spec:
       - name: tomcat
         image: tomcat:8.5.69
 ```
-#### 2.3 deployment.yaml
+#### 2.3 [deployment.yaml](https://github.com/MSRaith/k8s_manifest/blob/main/deployment.yaml)
 ```
 apiVersion: apps/v1
 kind: Deployment
@@ -84,4 +84,21 @@ spec:
         image: tomcat:8.5.69
         ports:
         - containerPort: 8080
+```
+#### 2.3 [configmap.yaml](https://github.com/MSRaith/k8s_manifest/blob/main/configmap.yaml)
+```
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: map-netology-ml 
+data:
+  default.conf: |
+    server {
+      listen 8080 default_server;
+      server_name_;
+      default_type text/plain;
+      location / {
+        return 200 'hostname\n'
+      }
+    }
 ```
