@@ -3,3 +3,14 @@ kind: ConfigMap
 metadata:
   name: map-netology-ml 
 data:
+  default.conf: |
+    server {
+      listen 8080 default_server;
+      server_name_;
+      default_type text/plain;
+      location / {
+        return 200 'hostname\n'
+      }
+    }
+      
+     
